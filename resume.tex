@@ -1,0 +1,308 @@
+%%%%
+% MTecknology's Resume
+%%%%
+% Author: Michael Lustfield
+% License: CC-BY-4
+% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
+%%%%
+
+\documentclass[letterpaper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty
+%% NOTE: Everything between here and END_FILE can
+%% be relocated to "mteck.sty" and then included with:
+%\usepackage{mteck}
+
+% Dependencies
+% NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{indentfirst}
+
+% Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Serif
+\usepackage{helvet}
+\usepackage{charter}
+
+% Colors
+% Use with \color{Name}
+% Can wrap entire heading with {\color{accent} [...] }
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{005a99}
+\definecolor{accentText}{HTML}{005a99}
+\definecolor{accentLine}{HTML}{005a99}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+%\input{glyphtounicode}
+%\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+% Centered title along with subtitle between HR
+% Usage: \documentTitle{Name}{Details}
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{10pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{accentTitle} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+% Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+% Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+% Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+% Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+}{
+  \end{itemize}
+  %\vspace{-2pt}
+}
+
+% Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+  \item[] \underline{#1}\vspace{4pt}
+}
+
+%% END_FILE: mteck.sty
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===================%
+% Gujju Gurunadha Reddy's Resume %
+%===================%
+
+%\numberedPages % NOTE: lastpage requires a second build
+%\documentFooter{\thepage of 2} % Does similar without using lastpage
+\begin{document}
+
+  %---------%
+  % Heading %
+  %---------%
+
+  \documentTitle{Gujju Gurunadha Reddy}{
+    % Web Version
+    %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
+    %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
+    %%
+    \href{tel:+33 759381024}{
+      \raisebox{-0.05\height} \faPhone\ +33 759-381-024} ~ | ~
+    \href{mailto:gujju.gurunadha.reddy@cern.ch}{
+      \raisebox{-0.15\height} \faEnvelope\ gujju.gurunadha.reddy@cern.ch} ~ | ~
+    \href{https://linkedin.com/in/gujju-gurunadha-reddy-3073972ab/}{
+      \raisebox{-0.15\height} \faLinkedin\ linkedin} ~ | ~
+    \href{https://github.com/greddy36}{
+      \raisebox{-0.15\height} \faGithub\ github}
+  }
+
+  %---------%
+  % Summary %
+  %---------%
+
+  \tinysection{Summary}
+    Ph.D. candidate in Experimental High Energy Physics with expertise in data analysis and pixel detector operation and maintenance as part of the CMS experiment at CERN.
+  %--------%
+  % Skills %
+  %--------%
+
+  \section{Education}
+  \begin{itemize}
+  \item \headingBf{Kansas State University}{Manhattan, KS}
+  \headingIt{PhD in Experimental High Energy Physics}{August 2019 -- Present}
+  \heading{GPA - 3.65/4.00}{}
+  \item \headingBf{National Institute of Science Education and Research}{Odisha, India}
+  \headingIt{Bachelors in Physics}{June 2014 -- May 2019}
+  \heading{Grade percentage - 68.6\% }{}
+  \end{itemize}
+
+  %------------%
+  % Experience %
+  %------------%
+
+  \section{Professional Experience}
+
+  \headingBf{Research Assistant, CMS Experiment at LHC}{August 2021 -- Present}
+  \headingIt{Kansas State University}{}
+  \hangindent=1em
+  \hangafter=0
+  In the Compact Muon Solenoid (CMS) group at Kansas State University, I have performed extensive physics, statistical and computational analyses of Large Hadron Collider (LHC) data and also assisted in pixel detector operations in Run-3.  
+  \begin{itemize}
+      \item \textbf{Search for pair produced $H^{\pm\pm}$ in a multi-lepton final state with the CMS detector at $\sqrt{s} =$ 13 TeV}
+      \newline
+      Designed and implemented a custom mass reconstruction algorithm for 4-lepton (including $\tau)$ plus up to 4-neutrino system in heavy di-resonance searches, utilizing the observed collinearity of neutrino and lepton momenta to approximate invariant masses and improve signal sensitivity.
+      
+      \item \textbf{Search for the single production of a vector-like
+quark decaying into a $W^{\pm}$ boson and a $b$-quark using single lepton final state with the CMS detector at $\sqrt{s} =$ 13 TeV}
+      \newline
+      Using a recursive-jigsaw mass reconstruction to optimize event kinematics, trained a feed-forward deep neural network (DNN) for signal–background separation. A genetic optimization–based DNN was used to optimize the shape systematics for limit calculations. 
+      
+      \item \textbf{Pixel Operations}
+      \newline
+      Designed various tools to assist shifters and experts in diagnosing pixel electronics. Responsible for developing and maintaining a FED (Front-End Driver) monitoring tool that fetches XDAQ flashlists in real-time to generate an error summary. Worked on a fast, firmware based reprogramming scheme for pixel Front-End Chip (FEC). It's estimated to reduce the reconfiguration time from 2 minutes to 4s. Contributed to detector operations by serving as a detector on-call (DOC) and data acquisition expert on a regular basis.
+
+      \item \textbf{FPGA testing for CMS upgrade}
+      \newline
+      During my time at Kansas State University, I assisted the engineers working on Pixel Upgrade to test the FMC mezzanine cards. It's widely used in the inner tracker upgrade.
+  \end{itemize}
+  
+
+  \headingBf{Undergraduate Research}{August 2016 -- May 2019}
+  \headingIt{National Institute of Science Education and Research}{}
+  \begin{itemize}
+    \item \textbf{Exotic decays of 125 $GeV$ Higgs to a pair of pseudo-scalars in a $2\gamma2j$ final state with the CMS detector at $\sqrt{s} =$ 13 TeV}
+    \newline
+    Used a ascending and descending cumulative binning approach to maximize the significance of kinematic cuts and also used a data driven method to model jet backgrounds. 
+    \item \textbf{Lock-in amplifier}
+    \newline
+    Designed and built a lock-in amplifier for extracting weak signals from noisy environments, demonstrating precise phase-sensitive detection. Successfully reconstructed faint audio signals with high signal-to-noise improvement.
+  \end{itemize}
+
+
+  
+  \section{Positions of Responsibility}
+  \begin{itemize}
+    \item  \headingBf{L3 Convener, Pixel DAQ convener}{June 2025 -- Present}
+    \headingIt{Pixel Operations, CMS collaboration}{CERN, CH}
+    \heading{I oversee the operation, monitoring, and maintenance of the CMS Pixel Data Acquisition system, ensuring reliable}{}
+    \heading{performance of both the front-end electronics and the associated control software infrastructure.}{}
+    \item  \headingBf{Pixel DAQ expert}{June 2023 -- Present}
+    \headingIt{Pixel Operations, CMS collaboration}{CERN, CH}
+    \heading{Trained several DOCs and DAQs in pixel operations, reduced operation downtime by developing error monitoring tools}{}
+    \heading{and provided technical support for the maintenance of software and electronics}{}
+    \end{itemize}
+  \section{Talks and Presentations}
+   \begin{itemize}
+   \item \headingBf{Tracker Week 2025}{CERN, CH}
+   \heading{Plenary talk on Pixel Status Report}{November 2025}
+   \item \headingBf{Posters@LHCC 2024}{CERN, CH}
+   \heading{Performance and Operation of CMS Pixel Tracker in 2023 and 2024}{November 2024}
+   \item \headingBf{Special B2G VHF meeting: ATLAS+CMS discussion on VLQ signal MC for Run-3}{Virtual}
+   \heading{Presented my findings on the discrepancies between VLQ couplings used by CMS and ATLAS}{February 2024}
+   \item \headingBf{JuliaHEP workshop 2023}{Erlangen, DE}
+   \heading{Talk given on Using Symbolic Regression in Julia to find analytic functions to model low statistics}{November 2023}
+   \item \headingBf{Posters@ESHEP 2022}{Jerusalem, IL}
+   \heading{Search for the single production of a vector-like quark $Y/T\rightarrow Wb$ in lepton+jets final state}{December 2022}
+   \end{itemize}
+
+   \section{Awards and Honors}
+   \begin{itemize}
+       \item \headingBf{INSPIRE Scholarship}{June 2014 -- May 2019}
+       \headingIt{Department of Physics}{NISER, India}
+       \heading{Awarded by the Department of Science and Technology for supporting young talent in fundamental sciences. }{}
+   \end{itemize}
+   
+    \section{Outreach and Teaching}
+   \begin{itemize}
+       \item \headingBf{Teaching Assistant}{August 2019- August 2021}
+       \headingIt{Kansas State University}{}
+       \heading{Taught classes and organized labs for PHY 113 (classical mechanics and thermodynamics) and PHY 114 (electromag-}{}
+       \heading{netism, optics and modern physics)}{}
+       \item \headingBf{Student Assistant}{August 2019 - August 2021}
+       \headingIt{Kansas State University}{}
+       \heading{Graded and proctored exams for 1st and 2nd year Engineering physics (EP-1 and EP-2)}{}
+       \item \headingBf{Tutoring}{January 2020 - May 2022}
+       \headingIt{Kansas State University}{}
+       \heading{Served as college employed help room tutor for math and physics courses across various departments}{}
+       \item \headingBf{HEP outreach}{January 2022}
+       \headingIt{Kansas State University}{}
+       \heading{Helped in setting up a hands on Higgs discovery exercise for undergraduates using CERN open data}{}
+       \item \headingBf{Annual Science Day}{2015, 2016, 2017}
+       \headingIt{NISER, India}{}
+       \heading{Actively participated in by designing and demonstrating interactive physics experiments for public engagement}{}
+   \end{itemize}
+
+   \section{Software and Hardware skills}
+   \begin{itemize}
+       \item \headingBf{Programming languages}{}
+       \heading{Proficient in: C, C++, ROOT, Python, Julia, Shell scripting, MATLAB, Mathematica, TeX, HTML, JavaScript}{}
+       \item \headingBf{Code Management}{}
+       \heading{Git, VIM, Nano, VSCode}{}
+   \end{itemize}
+\end{document}
